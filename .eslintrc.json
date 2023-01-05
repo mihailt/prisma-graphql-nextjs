@@ -19,6 +19,16 @@
          "devDependencies": true
       }
     ],
-    "no-console": ["warn", { "allow": ["clear", "info", "error", "dir", "trace", "log"] }]
+    "no-console": ["warn", { "allow": ["clear", "info", "error", "dir", "trace", "log"] }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ]
   }
 }
