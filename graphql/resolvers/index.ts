@@ -1,8 +1,8 @@
 import merge from 'lodash.merge';
-import hello from './Hello';
+import posts from './Posts';
 
 const resolvers = merge(
-  hello,
+  posts,
 );
 
 export default resolvers;
