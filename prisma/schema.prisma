@@ -16,7 +16,7 @@ model User {
   image     String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  favorites Post[]
+  posts Post[]
 }
 
 model Post {
@@ -29,5 +29,6 @@ model Post {
   category    String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  users       User[]
+  user   User @relation(fields: [userId], references: [id])
+  userId String
 }

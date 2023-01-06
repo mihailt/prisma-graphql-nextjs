@@ -9,6 +9,7 @@ const posts = [
     imageUrl: 'https://nextjs.org/static/twitter-cards/home.jpg',
     title: 'Next.js',
     url: 'https://nextjs.org',
+    userId: '',
   },
   {
     category: 'Open Source',
@@ -18,6 +19,7 @@ const posts = [
 
     title: 'Prisma',
     url: 'https://prisma.io',
+    userId: '',
   },
   {
     category: 'Open Source',
@@ -27,6 +29,7 @@ const posts = [
       'https://tailwindcss.com/_next/static/media/twitter-large-card.85c0ff9e455da585949ff0aa50981857.jpg',
     title: 'TailwindCSS',
     url: 'https://tailwindcss.com',
+    userId: '',
   },
   {
     category: 'Open Source',
@@ -35,14 +38,19 @@ const posts = [
     imageUrl: 'https://www.apollographql.com/apollo-home.jpg',
     title: 'Apollo GraphQL',
     url: 'https://apollographql.com',
+    userId: '',
   },
 ];
 
 async function main() {
-  await prisma.user.create({
+  const user = await prisma.user.create({
     data: {
       email: 'mihailt@gmail.com',
     },
+  });
+
+  posts.forEach((post) => {
+    post.userId = user.id;
   });
 
   await prisma.post.createMany({

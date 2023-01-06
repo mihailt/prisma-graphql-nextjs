@@ -1,8 +1,10 @@
 import merge from 'lodash.merge';
-import posts from './Posts';
+import post from './Post';
+import user from './User';
 
 const resolvers = merge(
-  posts,
+  post,
+  user,
 );
 
 export default resolvers;

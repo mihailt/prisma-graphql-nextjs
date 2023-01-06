@@ -1,5 +1,6 @@
 type Query {
-  posts(limit: Int!, cursor: String): [Post]
+  posts(limit: Int!, cursor: String, userId: String): [Post]
+  user(id: String!): User
 }
 
 type Post {
@@ -8,5 +9,11 @@ type Post {
   description: String!
   url: String!
   imageUrl: String!
-  users: [String]
+  user: User!
+}
+
+type User {
+  id: ID!
+  email: String!
+  image: String
 }
