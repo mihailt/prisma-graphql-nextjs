@@ -17,6 +17,8 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   posts Post[]
+  favorites Post[] @relation("favorites")
+  files MediaFile[] @relation("files")
 }
 
 model Post {
@@ -24,10 +26,21 @@ model Post {
   index       Int      @default(autoincrement())
   title       String
   description String
-  url         String
-  imageUrl    String
+  image MediaFile @relation("media", fields: [imageId], references: [id])
+  imageId String
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  user   User @relation(fields: [userId], references: [id])
-  userId String
+  user   User? @relation(fields: [userId], references: [id])
+  userId String?
+  favorites User[] @relation("favorites")
+}
+
+model MediaFile {
+  id String @id @default(uuid())
+  url String
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+  posts Post[] @relation("media")
+  user User? @relation("files", fields: [userId], references: [id])
+  userId String?
 }
