@@ -1,9 +1,19 @@
 import { Context } from '../../context';
+import { User } from '../User';
 
 export interface PostArgs {
   limit: number
   cursor?: string
   userId?: string
+}
+
+export interface Post {
+  id: string
+  title: string
+  description: string
+  url: string
+  imageUrl: string
+  user: User
 }
 
 const resolvers = {

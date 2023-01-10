@@ -4,6 +4,12 @@ export interface UserArgs {
   id: string
 }
 
+export interface User {
+  id: string
+  email: string
+  image: String
+}
+
 const resolvers = {
   Query: {
     user: async (_parent: undefined, args: UserArgs, ctx: Context) => {
