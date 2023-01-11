@@ -77,12 +77,11 @@ export default function Create() {
 
   const onSuccess = async (resp: any) => {
     await sleep(1000);
-    router.push(`/post/${resp.data.createPost.id}`);
+    router.push(`/post/${resp.data.create.id}`);
   };
 
   const onSubmit = async (values: any) => {
     const { title, description } = values;
-    console.log({ title, description, imageId });
     try {
       await toast.promise(createPost({
         variables: {
