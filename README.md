@@ -1,5 +1,7 @@
 ## Prisma, S3, Auth0, Graphql, Next.js project 
 
+![Screenshot](readme/readme.png)
+
 The complete app is running on [https://prisma-graphql-nextjs-rho.vercel.app/](https://prisma-graphql-nextjs-rho.vercel.app/) check it yourself to see the result.
 
 This is a demo project allowing the user to sign-up/sign-up and create, view and bookmark posts.
