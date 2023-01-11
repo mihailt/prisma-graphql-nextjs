@@ -10,8 +10,16 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     return res.status(403).json({ message: 'You must provide the secret' });
   }
   if (email) {
-    await prisma.user.create({
-      data: { email },
+    await prisma.user.upsert({
+      where: {
+        email,
+      },
+      update: {
+        email,
+      },
+      create: {
+        email,
+      },
     });
     return res.status(200).json({
       message: `User with email: ${email} has been created successfully!`,

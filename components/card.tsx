@@ -3,7 +3,6 @@ import React from 'react';
 export type CardProps = {
   id: string
   imageUrl: string
-  url: string
   title: string
   description: string
 }
@@ -11,7 +10,6 @@ export type CardProps = {
 function Card({
   id,
   imageUrl,
-  url,
   title,
   description,
 }: CardProps) {

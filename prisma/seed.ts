@@ -8,11 +8,11 @@ const files = [
   },
   {
     id: '8a9020b2-363b-4a4f-ad26-d6d55b51bqe4',
-    url: 'https://nextjs.org/static/twitter-cards/home.jpg',
+    url: 'https://assets.vercel.com/image/upload/v1662090959/front/nextjs/twitter-card.png',
   },
   {
     id: '8a9020b2-363b-4a4f-ad26-d6d55b51bqe3',
-    url: 'https://www.prisma.io/images/og-image.png',
+    url: 'https://website-v8.vercel.app/og-images/og-image-prisma-index.png',
   },
   {
     id: '8a9020b2-363b-4a4f-ad26-d6d55b51bqe2',

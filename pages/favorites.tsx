@@ -4,21 +4,21 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import Card from '../components/card';
 
-export default function Home() {
-  const allPostsQuery = gql`
-    query Posts($limit: Int!, $cursor: String) {
-      posts(limit: $limit, cursor: $cursor) {
+export default function Favorites() {
+  const favoritesPostsQuery = gql`
+    query Post($limit: Int!, $cursor: String) {
+      favorites(limit: $limit, cursor: $cursor) {
         id
-        description
         title
+        description
         image {
           id
           mimetype
           url
         }
         user {
-          id
           email
+          id
           image
         }
       }
@@ -29,16 +29,16 @@ export default function Home() {
 
   const {
     data, loading, error, fetchMore,
-  } = useQuery(allPostsQuery, {
+  } = useQuery(favoritesPostsQuery, {
     variables: { limit: 10 },
   });
 
   const postQueryHandler = (responseData: any) => {
-    if (responseData && responseData.posts) {
-      if (responseData.posts.length === 0) {
+    if (responseData && responseData.favorites) {
+      if (responseData.favorites.length === 0) {
         setHasMore(false);
       }
-      setPosts([...posts, ...responseData.posts]);
+      setPosts([...posts, ...responseData.favorites]);
     }
   };
 

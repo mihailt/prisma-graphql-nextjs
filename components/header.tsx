@@ -29,18 +29,27 @@ function Header() {
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
           {user ? (
             <div className="flex items-center space-x-5">
+              <Link href="/create">
+                <a href="#!" className="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+                  + Create
+                </a>
+              </Link>
+              <Link href="/posts">
+                <a href="#!" className="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+                  My Posts
+                </a>
+              </Link>
+
+              <Link href="/favorites">
+                <a href="#!" className="inline-flex items-center border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+                  My Favorites
+                </a>
+              </Link>
               <Link href="/api/auth/logout">
                 <a href="#!" className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
                   Logout
                 </a>
               </Link>
-              <picture>
-                <img
-                  alt="profile"
-                  className="rounded-full w-12 h-12"
-                  src={user.picture ? user.picture : undefined}
-                />
-              </picture>
             </div>
           ) : (
             <Link href="/api/auth/login">
