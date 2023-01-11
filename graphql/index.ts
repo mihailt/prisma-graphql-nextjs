@@ -1,14 +1,39 @@
 import gql from 'graphql-tag';
-import path from 'path';
 import r from './resolvers';
 
-const { readFileSync } = require('fs');
+export const typeDefs = gql`
+  type Query {
+    my(limit: Int!, cursor: String): [Post]
+    favorites(limit: Int!, cursor: String): [Post]
+    posts(limit: Int!, cursor: String, userId: String): [Post]
+    post(id: String!): Post
+    user(id: String!): User
+  }
 
-const requireGQL = (file: string) => {
-  const dir = path.join(process.cwd(), 'graphql');
-  const content = readFileSync(`${dir}/${file}`, 'utf8');
-  return gql`${content}`;
-};
+  type Mutation {
+    create(title: String, description: String, imageId: String): Post!
+    bookmark(id: String): Post!
+  }
 
-export const typeDefs = requireGQL('schema.graphql');
+  type MediaFile {
+    id: String
+    mimetype: String
+    url: String
+  }
+
+  type Post {
+    id: ID!
+    title: String!
+    description: String!
+    image: MediaFile
+    user: User!
+  }
+
+  type User {
+    id: ID!
+    email: String!
+    image: String
+  }
+`;
+
 export const resolvers = r;
