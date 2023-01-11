@@ -15,7 +15,7 @@ function Card({
 }: CardProps) {
   return (
     <div key={id} className="max-w-sm rounded overflow-hidden shadow-lg">
-      <div className="bg-indigo-300">
+      <div>
         <img className="object-cover h-48 w-full max-w-full max-h-fit" src={imageUrl} alt="Sunset in the mountains" />
       </div>
       <div className="px-6 py-4">
