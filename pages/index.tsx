@@ -31,6 +31,7 @@ export default function Home() {
     data, loading, error, fetchMore,
   } = useQuery(allPostsQuery, {
     variables: { limit: 10 },
+    fetchPolicy: 'cache-and-network',
   });
 
   const postQueryHandler = (responseData: any) => {

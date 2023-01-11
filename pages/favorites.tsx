@@ -31,6 +31,7 @@ export default function Favorites() {
     data, loading, error, fetchMore,
   } = useQuery(favoritesPostsQuery, {
     variables: { limit: 10 },
+    fetchPolicy: 'cache-and-network',
   });
 
   const postQueryHandler = (responseData: any) => {
